@@ -1057,7 +1057,7 @@
         </svg></div>
       <div class="promo-text">
         <p>Promoção segunda a quinta</p>
-        <h3>Pizza Grande R$ 45 Â· com Refri R$ 48</h3><small id="promo-note">Sabores tradicionais Â· Exceto
+        <h3>Pizza Grande R$ 45 · com Refri R$ 48</h3><small id="promo-note">Sabores tradicionais · Exceto
           feriados</small>
       </div>
       <button class="promo-btn" id="promo-btn" onclick="choosePromoPizza()">Escolher pizza da promoção</button>
@@ -1076,8 +1076,8 @@
         <div class="section-title">1. Escolha o tamanho</div>
         <div class="sizes-row" id="sizes-mix">
           <div class="size-btn selected" data-size="media"
-            onclick="selectSize(this,'mix','media',38,'MÃ©dia','4 fatias')">
-            <div class="sz-name">MÃDIA</div>
+            onclick="selectSize(this,'mix','media',38,'Média','4 fatias')">
+            <div class="sz-name">MÉDIA</div>
             <div class="sz-slices">4 fatias</div>
             <div class="sz-price">R$38</div>
           </div>
@@ -1092,8 +1092,8 @@
             <div class="sz-price">R$58</div>
           </div>
           <div class="size-btn" data-size="familia"
-            onclick="selectSize(this,'mix','familia',68,'FamÃ­lia','12 fatias')">
-            <div class="sz-name">FAMÃLIA</div>
+            onclick="selectSize(this,'mix','familia',68,'Família','12 fatias')">
+            <div class="sz-name">FAMÍLIA</div>
             <div class="sz-slices">12 fatias</div>
             <div class="sz-price">R$68</div>
           </div>
@@ -1101,7 +1101,7 @@
 
         <div class="section-title">2. Escolha os sabores</div>
         <div class="builder-hint" id="flavor-limit">Escolha 1 ou 2 sabores. Meia tradicional com meia especial calcula o
-          valor mÃ©dio.</div>
+          valor médio.</div>
         <div class="flavor-tabs">
           <button class="flavor-tab active" onclick="setFlavorFilter('trad',this)">Tradicionais</button>
           <button class="flavor-tab" onclick="setFlavorFilter('esp',this)">Especiais</button>
@@ -1153,7 +1153,7 @@
         <label style="flex-basis:100%">Endereço:</label>
         <input class="delivery-input" type="text" placeholder="Rua" id="addr-street" oninput="updateTotals()"
           style="width:45%">
-        <input class="delivery-input" type="text" placeholder="NÃºmero" id="addr-number" oninput="updateTotals()"
+        <input class="delivery-input" type="text" placeholder="Número" id="addr-number" oninput="updateTotals()"
           style="width:20%">
         <input class="delivery-input" type="text" placeholder="Digite o bairro" id="addr-neighborhood-search"
           oninput="onNeighborhoodInput()" style="width:30%" autocomplete="off">
@@ -1175,26 +1175,26 @@
           class="delivery-input" id="payment-method" onchange="updateTotals()" style="width:60%">
           <option value="">Selecione</option>
           <option value="Dinheiro">Dinheiro</option>
-          <option value="CartÃ£o no entregador">Cartão na entrega</option>
+          <option value="Cartão no entregador">Cartão na entrega</option>
           <option value="PIX">PIX</option>
         </select></div>
       <div class="total-row"><span class="total-label">Total</span><span class="total-value" id="total-display">R$
           0,00</span></div>
       <button class="checkout-btn" id="checkout-btn" onclick="sendToWhatsapp()" disabled>Finalizar Pedido</button>
-      <div class="checkout-closed" id="checkout-closed">Hoje estamos fechados. O envio do pedido estÃ¡ indisponÃ­vel.
+      <div class="checkout-closed" id="checkout-closed">Hoje estamos fechados. O envio do pedido está indisponível.
       </div>
     </div>
   </div>
 
   <script>
     const PIZZAS_TRAD = [
-      { name: 'Calabresa', desc: 'Mussarela e Calabresa' }, { name: 'Humita', desc: 'Mussarela e Milho' }, { name: 'Mista', desc: 'Mussarela, Apresentado e Calabresa' }, { name: 'Napolitana', desc: 'Mussarela, Tomate e ParmesÃ£o' }, { name: 'Portuguesa', desc: 'Mussarela, Apresentado, Ovo, PimentÃ£o, Cebola e Azeitona' }, { name: 'Apresentado', desc: 'Mussarela e Apresentado' }, { name: 'Italiana', desc: 'Mussarela, Apresentado, Milho e RequeijÃ£o tipo Catupiry' }, { name: 'Mussarela', desc: 'Mussarela' }, { name: 'Montes Claros', desc: 'Mussarela, Apresentado, Milho, Cebola, PimentÃ£o e Tomate' }, { name: 'A Moda', desc: 'Mussarela, Calabresa, Apresentado, Cebola, PimentÃ£o e Tomate' }, { name: 'Marguerita', desc: 'Mussarela, Tomate e ManjericÃ£o seco' }, { name: 'Calabresa Ã  Francesa', desc: 'Mussarela, Calabresa e Creme de Leite' }
+      { name: 'Calabresa', desc: 'Mussarela e Calabresa' }, { name: 'Humita', desc: 'Mussarela e Milho' }, { name: 'Mista', desc: 'Mussarela, Presunto e Calabresa' }, { name: 'Napolitana', desc: 'Mussarela, Tomate e Parmesão' }, { name: 'Portuguesa', desc: 'Mussarela, Presunto, Ovo, Pimentão, Cebola e Azeitona' }, { name: 'Presunto', desc: 'Mussarela e Presunto' }, { name: 'Italiana', desc: 'Mussarela, Presunto, Milho e Requeijão tipo Catupiry' }, { name: 'Mussarela', desc: 'Mussarela' }, { name: 'Montes Claros', desc: 'Mussarela, Presunto, Milho, Cebola, Pimentão e Tomate' }, { name: 'À Moda', desc: 'Mussarela, Calabresa, Presunto, Cebola, Pimentão e Tomate' }, { name: 'Marguerita', desc: 'Mussarela, Tomate e Manjericão seco' }, { name: 'Calabresa à Francesa', desc: 'Mussarela, Calabresa e Creme de Leite' }
     ];
     const PIZZAS_ESP = [
-      { name: 'Du Cheff', desc: 'Mussarela, Milho, Bacon, Calabresa, Cebola e Azeitona' }, { name: 'Vegetariana', desc: 'Mussarela, Palmito, Milho, Tomate, Ervilha e Azeitona' }, { name: 'Atum', desc: 'Mussarela e Atum' }, { name: 'Bacon', desc: 'Mussarela e Bacon' }, { name: 'La Casa', desc: 'Mussarela, Apresentado, Frango, Tomate, Cebola e Azeitona' }, { name: 'Da Casa', desc: 'Mussarela, Calabresa, Milho, Ervilha, Ovos e Tomate' }, { name: 'Frango', desc: 'Mussarela, Frango desfiado' }, { name: 'Frango Catupiry', desc: 'Mussarela, Frango e RequeijÃ£o tipo Catupiry' }, { name: 'Frango com Milho', desc: 'Mussarela, Frango desfiado e Milho' }, { name: 'CarijÃ³', desc: 'Mussarela, Frango, Milho e RequeijÃ£o tipo catupiry' }, { name: 'Caipira', desc: 'Mussarela, Frango, Calabresa e Milho' }, { name: 'Quatro Queijos', desc: 'Mussarela, RequeijÃ£o tipo Catupiry, ParmesÃ£o e Provolone' }, { name: 'Especial', desc: 'Mussarela, Calabresa, Milho, Palmito, Frango, Bacon, Cebola e PimentÃ£o' }, { name: 'FlorenÃ§a', desc: 'Mussarela, Frango, Bacon, Cheddar e Batata palha' }, { name: 'Frango Ã  Bolonhesa', desc: 'Mussarela, Frango e Molho Ã  bolonhesa' }, { name: 'Lombo c/ Catupiry', desc: 'Mussarela, Lombinho e RequeijÃ£o tipo catupiry' }, { name: 'Carne de Sol', desc: 'Mussarela, Carne de Sol e Cebola' }, { name: 'Peito de Peru Ã  Francesa', desc: 'Mussarela, Peito de Peru e Creme de leite' }, { name: 'Palmito Ã  Bolonhesa', desc: 'Mussarela, Palmito e Molho Ã  Bolonhesa' }, { name: 'Palmito', desc: 'Mussarela, Palmito' }, { name: 'Lombo Prime', desc: 'Mussarela, Lombinho, Cheddar e Bacon' }
+      { name: 'Do Chef', desc: 'Mussarela, Milho, Bacon, Calabresa, Cebola e Azeitona' }, { name: 'Vegetariana', desc: 'Mussarela, Palmito, Milho, Tomate, Ervilha e Azeitona' }, { name: 'Atum', desc: 'Mussarela e Atum' }, { name: 'Bacon', desc: 'Mussarela e Bacon' }, { name: 'La Casa', desc: 'Mussarela, Presunto, Frango, Tomate, Cebola e Azeitona' }, { name: 'Da Casa', desc: 'Mussarela, Calabresa, Milho, Ervilha, Ovos e Tomate' }, { name: 'Frango', desc: 'Mussarela, Frango desfiado' }, { name: 'Frango Catupiry', desc: 'Mussarela, Frango e Requeijão tipo Catupiry' }, { name: 'Frango com Milho', desc: 'Mussarela, Frango desfiado e Milho' }, { name: 'Carijó', desc: 'Mussarela, Frango, Milho e Requeijão tipo catupiry' }, { name: 'Caipira', desc: 'Mussarela, Frango, Calabresa e Milho' }, { name: 'Quatro Queijos', desc: 'Mussarela, Requeijão tipo Catupiry, Parmesão e Provolone' }, { name: 'Especial', desc: 'Mussarela, Calabresa, Milho, Palmito, Frango, Bacon, Cebola e Pimentão' }, { name: 'Florença', desc: 'Mussarela, Frango, Bacon, Cheddar e Batata palha' }, { name: 'Frango à Bolonhesa', desc: 'Mussarela, Frango e Molho à bolonhesa' }, { name: 'Lombo c/ Catupiry', desc: 'Mussarela, Lombinho e Requeijão tipo catupiry' }, { name: 'Carne de Sol', desc: 'Mussarela, Carne de Sol e Cebola' }, { name: 'Peito de Peru à Francesa', desc: 'Mussarela, Peito de Peru e Creme de leite' }, { name: 'Palmito à Bolonhesa', desc: 'Mussarela, Palmito e Molho à Bolonhesa' }, { name: 'Palmito', desc: 'Mussarela, Palmito' }, { name: 'Lombo Prime', desc: 'Mussarela, Lombinho, Cheddar e Bacon' }
     ];
     const PIZZAS_DOCE = [
-      { name: 'Banana', desc: 'Mussarela, Leite condensado, Banana e Canela' }, { name: 'Romeu e Julieta', desc: 'Mussarela e Goiabada' }, { name: 'PrestÃ­gio', desc: 'Mussarela, PrestÃ­gio e Chocolate' }, { name: 'Brigadeiro', desc: 'Mussarela, Chocolate e Granulado' }
+      { name: 'Banana', desc: 'Mussarela, Leite condensado, Banana e Canela' }, { name: 'Romeu e Julieta', desc: 'Mussarela e Goiabada' }, { name: 'Prestígio', desc: 'Mussarela, Prestígio e Chocolate' }, { name: 'Brigadeiro', desc: 'Mussarela, Chocolate e Granulado' }
     ];
     const SUPABASE_URL = 'https://kmjbulbsgiptzvhhweau.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_DqoB81h8n1YjjT6rZpEo1Q_dadcornK';
@@ -1206,7 +1206,7 @@
     let PRICES = JSON.parse(JSON.stringify(PRICES_DEFAULT));
     let pizzaSelections = [];
     let currentPizzaId = null;
-    let sizes = { mix: { k: 'media', price: 38, name: 'MÃ©dia', slices: '4 fatias' }, bebidas: { k: 'unit', price: 0, name: 'Unidade', slices: '' } };
+    let sizes = { mix: { k: 'media', price: 38, name: 'Média', slices: '4 fatias' }, bebidas: { k: 'unit', price: 0, name: 'Unidade', slices: '' } };
     const LAST_ORDER_KEY = 'la_casa_last_order';
     let orderStatusTimer = null;
 
@@ -1231,9 +1231,9 @@
       banner.style.display = 'flex';
       if (btn) {
         btn.disabled = !available;
-        btn.textContent = available ? 'Escolher pizza da promoÃ§Ã£o' : 'DisponÃ­vel de segunda a quinta';
+        btn.textContent = available ? 'Escolher pizza da promoção' : 'Disponível de segunda a quinta';
       }
-      if (note) note.textContent = available ? 'Sabores tradicionais Â· Exceto feriados' : 'Hoje a promoÃ§Ã£o nÃ£o estÃ¡ disponÃ­vel para pedido';
+      if (note) note.textContent = available ? 'Sabores tradicionais · Exceto feriados' : 'Hoje a promoção não está disponível para pedido';
       if (!available) promoMode = false;
     }
     function getPriceForSelection() {
@@ -1267,7 +1267,7 @@
         const selected = pizzaSelections.some(i => getSelectedFlavorKey(i) === getSelectedFlavorKey(p));
         const div = document.createElement('div');
         div.className = 'pizza-card';
-        div.innerHTML = `<div class="pizza-info"><div class="pizza-name">${escapeHtml(p.name)} <small style="color:#e0aa8c;font-size:10px">(${p.catName})</small></div><div class="pizza-desc">${escapeHtml(p.desc)}</div></div><button class="add-btn ${selected ? 'selected' : ''}" onclick="togglePizzaFlavor('${p.cat}','${escapeHtml(p.name)}',event)" title="Adicionar sabor">${selected ? 'â' : '+'}</button>`;
+        div.innerHTML = `<div class="pizza-info"><div class="pizza-name">${escapeHtml(p.name)} <small style="color:#e0aa8c;font-size:10px">(${p.catName})</small></div><div class="pizza-desc">${escapeHtml(p.desc)}</div></div><button class="add-btn ${selected ? 'selected' : ''}" onclick="togglePizzaFlavor('${p.cat}','${escapeHtml(p.name)}',event)" title="Adicionar sabor">${selected ? '✓' : '+'}</button>`;
         list.appendChild(div);
       });
     }
@@ -1280,7 +1280,7 @@
       if (idx >= 0) pizzaSelections.splice(idx, 1);
       else {
         const max = getMaxFlavors();
-        if (pizzaSelections.length >= max) { alert(`Este tamanho permite atÃ© ${max} sabores.`); return; }
+        if (pizzaSelections.length >= max) { alert(`Este tamanho permite até ${max} sabores.`); return; }
         pizzaSelections.push(flavor);
       }
       renderPizzaBuilder();
@@ -1311,7 +1311,7 @@
       renderPizzaBuilder();
       renderCart();
       updateTotals();
-      showBuilderFeedback('Comece a montar a prÃ³xima pizza.');
+      showBuilderFeedback('Comece a montar a próxima pizza.');
     }
     function getCurrentPizzaData() {
       if (!pizzaSelections.length) return null;
@@ -1349,7 +1349,7 @@
       const chips = document.getElementById('builder-chips');
       const note = (document.getElementById('pizza-note')?.value || '').trim();
       syncCurrentPizzaToCart();
-      document.getElementById('flavor-limit').textContent = max === 3 ? 'Escolha atÃ© 3 sabores. Sabores de categorias diferentes calculam o valor mÃ©dio.' : 'Escolha 1 ou 2 sabores. Meia tradicional com meia especial calcula o valor mÃ©dio.';
+      document.getElementById('flavor-limit').textContent = max === 3 ? 'Escolha até 3 sabores. Sabores de categorias diferentes calculam o valor médio.' : 'Escolha 1 ou 2 sabores. Meia tradicional com meia especial calcula o valor médio.';
       chips.innerHTML = pizzaSelections.length ? pizzaSelections.map((item, index) => `<span class="builder-chip">${escapeHtml(item.name)}<button onclick="removePizzaFlavor(${index})" title="Remover">x</button></span>`).join('') : '<span style="font-size:12px;color:#d59a78">Toque no + do sabor para montar a pizza.</span>';
       document.getElementById('new-pizza-btn').disabled = pizzaSelections.length === 0;
       document.getElementById('step-size').className = 'step-pill done';
@@ -1375,7 +1375,7 @@
     }
     function renderBordas() {
       const g = document.getElementById('bordas-grid');
-      g.innerHTML = `<div class="border-opt ${selectedBorda === null ? 'selected' : ''}" onclick="selectBorda(null,this)"><div class="b-name">Sem borda</div><div class="b-price">GrÃ¡tis</div></div>`;
+      g.innerHTML = `<div class="border-opt ${selectedBorda === null ? 'selected' : ''}" onclick="selectBorda(null,this)"><div class="b-name">Sem borda</div><div class="b-price">Grátis</div></div>`;
       BORDAS.forEach(b => {
         const d = document.createElement('div');
         d.className = 'border-opt ' + (selectedBorda && selectedBorda.name === b.name ? 'selected' : '');
@@ -1405,7 +1405,7 @@
       cart.push({ cat, name, desc, size: 'Unidade', slices: '', price: Number(price) || 0, qty: 1, borda: null, note: '', id: Date.now() + Math.random() });
       renderCart(); updateTotals();
       renderPizzaBuilder();
-      if (e && e.target) { e.target.classList.add('selected'); e.target.textContent = 'â'; setTimeout(() => { e.target.classList.remove('selected'); e.target.textContent = '+' }, 900) }
+      if (e && e.target) { e.target.classList.add('selected'); e.target.textContent = '✓'; setTimeout(() => { e.target.classList.remove('selected'); e.target.textContent = '+' }, 900) }
     }
     function itemTotal(item) { return (Number(item.price) || 0) * item.qty + (item.borda ? (Number(item.borda.price) || 0) * item.qty : 0) }
     function changeQty(id, delta) {
@@ -1432,7 +1432,7 @@
         div.className = 'cart-item';
         const note = item.note ? `<small class="ci-note">Obs: ${escapeHtml(item.note)}</small>` : '';
         const borda = item.borda ? `<small class="ci-note">Borda ${escapeHtml(item.borda.name)}</small>` : '';
-        div.innerHTML = `<span class="ci-name">${escapeHtml(item.name)} <small style="color:#d59a78;font-size:10px">(${item.size})</small>${borda}${note}</span><div class="ci-qty"><button onclick="changeQty(${item.id},-1)">â</button><span>${item.qty}</span><button onclick="changeQty(${item.id},1)">+</button></div><span class="ci-price">R$${itemTotal(item).toFixed(2).replace('.', ',')}</span>`;
+        div.innerHTML = `<span class="ci-name">${escapeHtml(item.name)} <small style="color:#d59a78;font-size:10px">(${item.size})</small>${borda}${note}</span><div class="ci-qty"><button onclick="changeQty(${item.id},-1)">−</button><span>${item.qty}</span><button onclick="changeQty(${item.id},1)">+</button></div><span class="ci-price">R$${itemTotal(item).toFixed(2).replace('.', ',')}</span>`;
         mini.appendChild(div);
       });
       if (cart.length > 3) { const more = document.createElement('div'); more.style.cssText = 'text-align:center;font-size:11px;color:#d59a78;padding:4px'; more.textContent = '+' + (cart.length - 3) + ' mais no pedido'; mini.appendChild(more) }
@@ -1441,12 +1441,12 @@
     function renderFullCart() {
       const s = document.getElementById('cart-summary');
       if (!s) return;
-      if (cart.length === 0) { s.innerHTML = '<div style="text-align:center;color:#e0aa8c;padding:30px 0"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px;margin:0 auto 8px"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><p style="margin-top:8px;font-size:14px">Seu pedido estÃ¡ vazio</p><p style="font-size:12px;color:#d59a78;margin-top:4px">Monte sua pizza na aba acima</p></div>'; return; }
+      if (cart.length === 0) { s.innerHTML = '<div style="text-align:center;color:#e0aa8c;padding:30px 0"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px;margin:0 auto 8px"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg><p style="margin-top:8px;font-size:14px">Seu pedido está vazio</p><p style="font-size:12px;color:#d59a78;margin-top:4px">Monte sua pizza na aba acima</p></div>'; return; }
       let html = '<div class="section-title">Itens do Pedido</div>';
       cart.forEach(item => {
         const note = item.note ? `<div class="pizza-desc"><strong>Obs:</strong> ${escapeHtml(item.note)}</div>` : '';
         const borda = item.borda ? `<div class="pizza-desc"><strong>Borda:</strong> ${escapeHtml(item.borda.name)} (+R$${item.borda.price.toFixed(2).replace('.', ',')})</div>` : '';
-        html += `<div class="pizza-card"><div class="pizza-info"><div class="pizza-name">${escapeHtml(item.name)} <span style="color:#e0aa8c;font-size:11px">(${item.size}${item.slices ? ' Â· ' + item.slices : ''})</span></div><div class="pizza-desc">${escapeHtml(item.desc)}</div>${borda}${note}</div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><div class="ci-qty"><button onclick="changeQty(${item.id},-1)">â</button><span>${item.qty}</span><button onclick="changeQty(${item.id},1)">+</button></div><span style="color:#ff6b3d;font-weight:800">R$${itemTotal(item).toFixed(2).replace('.', ',')}</span></div></div>`;
+        html += `<div class="pizza-card"><div class="pizza-info"><div class="pizza-name">${escapeHtml(item.name)} <span style="color:#e0aa8c;font-size:11px">(${item.size}${item.slices ? ' · ' + item.slices : ''})</span></div><div class="pizza-desc">${escapeHtml(item.desc)}</div>${borda}${note}</div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><div class="ci-qty"><button onclick="changeQty(${item.id},-1)">−</button><span>${item.qty}</span><button onclick="changeQty(${item.id},1)">+</button></div><span style="color:#ff6b3d;font-weight:800">R$${itemTotal(item).toFixed(2).replace('.', ',')}</span></div></div>`;
       });
       const street = document.getElementById('addr-street')?.value.trim() || '', number = document.getElementById('addr-number')?.value.trim() || '', customer = document.getElementById('customer-name')?.value.trim() || '', phone = getCustomerPhone(), neighborhood = getSelectedNeighborhoodName(), payment = getPaymentMethod(), delivery = parseFloat(document.getElementById('delivery-fee')?.value) || 0;
       if (customer || phone) html += `<div class="pizza-card"><div><div class="pizza-name">Cliente</div><div class="pizza-desc">${escapeHtml(customer)}${phone ? '<br>Telefone: ' + escapeHtml(phone) : ''}</div></div></div>`;
@@ -1473,7 +1473,7 @@
       if (!isPromoAvailable()) {
         promoMode = false;
         renderPromoAvailability();
-        alert('A promoÃ§Ã£o estÃ¡ disponÃ­vel somente de segunda a quinta.');
+        alert('A promoção está disponível somente de segunda a quinta.');
         return;
       }
       switchTab('montagem');
@@ -1497,14 +1497,17 @@
       const closedNotice = document.getElementById('checkout-closed');
       const open = isStoreOpen();
       checkoutBtn.style.display = open ? 'block' : 'none';
-      if (closedNotice) closedNotice.style.display = open ? 'none' : 'block';
+      if (closedNotice) {
+        closedNotice.style.display = open ? 'none' : 'block';
+        closedNotice.textContent = getStoreClosedReason();
+      }
       checkoutBtn.disabled = !(open && cart.length > 0 && isAddressValid() && isPaymentSelected());
       renderFullCart();
     }
     function getPaymentMethod() { return document.getElementById('payment-method')?.value || '' }
     function getCustomerPhone() { return document.getElementById('customer-phone')?.value.trim() || '' }
     function isPaymentSelected() { return getPaymentMethod() !== '' }
-    function normalizePaymentForOrder(payment) { if (payment === 'PIX') return 'pix'; if (payment === 'CartÃ£o no entregador') return 'cartao'; return 'dinheiro' }
+    function normalizePaymentForOrder(payment) { if (payment === 'PIX') return 'pix'; if (payment === 'Cartão no entregador') return 'cartao'; return 'dinheiro' }
     function buildWhatsappMessage(orderNumber) {
       let msg = '*Pedido - La Casa da Pizza*\n\n';
       if (orderNumber) msg += `Pedido #${orderNumber}\n\n`;
@@ -1518,16 +1521,16 @@
         if (i.note) msg += `  Obs: ${i.note}\n`;
       });
       const street = document.getElementById('addr-street').value.trim(), number = document.getElementById('addr-number').value.trim(), neighborhood = getSelectedNeighborhoodName(), payment = getPaymentMethod(), amounts = getOrderAmounts();
-      msg += `\nEndereco:\nRua: ${street}\nNumero: ${number}\nBairro: ${neighborhood}\n`;
+      msg += `\nEndere?o:\nRua: ${street}\nN?mero: ${number}\nBairro: ${neighborhood}\n`;
       if (amounts.delivery > 0) msg += `- Taxa de entrega: R$${amounts.delivery.toFixed(2)}\n`;
       msg += `- Pagamento: ${payment}\n\n*Total: R$${amounts.total.toFixed(2)}*`;
       return msg;
     }
     function orderStatusLabel(status) {
       const labels = {
-        novo: 'Aguardando confirmaÃ§Ã£o da pizzaria',
+        novo: 'Aguardando confirmação da pizzaria',
         aceito: 'Pedido aceito pela pizzaria',
-        preparando: 'Seu pedido estÃ¡ sendo preparado',
+        preparando: 'Seu pedido está sendo preparado',
         saiu_entrega: 'Seu pedido saiu para entrega',
         entregue: 'Pedido entregue',
         cancelado: 'Pedido cancelado'
@@ -1573,7 +1576,7 @@
         <span>${orderStatusLabel(status)}</span>
         <small>${status === 'entregue' || status === 'cancelado' ? 'Acompanhamento finalizado.' : 'A pizzaria atualiza este status pelo painel administrativo.'}</small>
       </div>
-      <button class="tracker-close" onclick="clearOrderTracker()" title="Ocultar acompanhamento">Ã</button>
+      <button class="tracker-close" onclick="clearOrderTracker()" title="Ocultar acompanhamento">×</button>
     </div>
     <div class="tracker-line">
       ${steps.map(([key, label], idx) => `<div class="tracker-step ${idx < current ? 'done' : ''} ${idx === current ? 'active' : ''}">${label}</div>`).join('')}
@@ -1601,7 +1604,7 @@
           }
         }
       } catch (e) {
-        console.warn('NÃ£o foi possÃ­vel atualizar status do pedido.', e);
+        console.warn('Não foi possível atualizar status do pedido.', e);
       }
     }
     function startOrderStatusPolling() {
@@ -1664,6 +1667,20 @@
       const current = now.getHours() * 60 + now.getMinutes();
       return close > open ? current >= open && current <= close : current >= open || current <= close;
     }
+    function getStoreOpeningState() {
+      if (!storeSettings.use_hours) return 'open';
+      const open = timeToMinutes(storeSettings.open_time);
+      const close = timeToMinutes(storeSettings.close_time);
+      if (open === null || close === null || open === close) return 'open';
+      const now = new Date();
+      const current = now.getHours() * 60 + now.getMinutes();
+      if (close > open) {
+        if (current < open) return 'before_open';
+        if (current > close) return 'after_close';
+        return 'open';
+      }
+      return current >= open || current <= close ? 'open' : 'before_open';
+    }
     function getStoreServiceDay() {
       const now = new Date();
       const open = timeToMinutes(storeSettings.open_time);
@@ -1675,18 +1692,23 @@
       return now.getDay();
     }
     function getStoreClosedReason() {
-      if (storeSettings.manual_closed) return 'Loja fechada no momento.';
       const closedDays = Array.isArray(storeSettings.closed_days) ? storeSettings.closed_days.map(Number) : [];
-      if (closedDays.includes(getStoreServiceDay())) return 'Hoje nÃ£o estamos funcionando.';
-      if (!isWithinStoreHours()) return `Estamos fora do horÃ¡rio de atendimento (${storeSettings.open_time || '18:00'} Ã s ${storeSettings.close_time || '23:59'}).`;
+      if (closedDays.includes(getStoreServiceDay())) return 'Hoje não haverá atendimento. Agradecemos a compreensão e esperamos atender você em breve.';
+      if (storeSettings.manual_closed) return `Estabelecimento fechado. Funcionamento a partir das ${storeSettings.open_time || '18:00'}.`;
+      const openingState = getStoreOpeningState();
+      if (openingState === 'before_open') return `Estabelecimento fechado. Funcionamento a partir das ${storeSettings.open_time || '18:00'}.`;
+      if (openingState === 'after_close') return 'Atendimento encerrado por hoje.';
       return '';
+    }
+    function getStoreClosedTitle() {
+      return getStoreOpeningState() === 'after_close' && !storeSettings.manual_closed ? 'Atendimento encerrado' : 'Estabelecimento fechado';
     }
     function isStoreOpen() { return getStoreClosedReason() === '' }
     function renderStoreStatus() {
       const el = document.getElementById('store-status'), reason = getStoreClosedReason();
       if (reason) {
         el.className = 'store-status closed';
-        el.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>Hoje estamos fechados</strong><span>' + escapeHtml(reason) + ' VocÃª pode consultar o cardÃ¡pio, mas o envio do pedido estÃ¡ bloqueado.</span></div>';
+        el.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>' + getStoreClosedTitle() + '</strong><span>' + escapeHtml(reason) + '</span></div>';
       } else {
         el.className = 'store-status open';
         el.innerHTML = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/><circle cx="12" cy="12" r="9"/></svg><div><strong>Estamos abertos</strong><span>Monte seu pedido e finalize pelo WhatsApp.</span></div>';
@@ -1712,7 +1734,7 @@
           PIZZAS_DYNAMIC = Array.from(byKey.values());
           return;
         }
-      } catch (e) { console.warn('Sabores do Supabase indisponiveis, usando cardapio local.', e) }
+      } catch (e) { console.warn('Sabores do Supabase indispon?veis, usando card?pio local.', e) }
       PIZZAS_DYNAMIC = null;
     }
     async function loadBeverages() {
@@ -1757,11 +1779,11 @@
         return;
       }
       if (matches.length === 0) {
-        box.innerHTML = '<div class="neighborhood-empty">NÃ£o entregamos nesse bairro.</div>';
+        box.innerHTML = '<div class="neighborhood-empty">Não entregamos nesse bairro.</div>';
         box.style.display = 'block';
         return;
       }
-      box.innerHTML = matches.map(n => `<button class="neighborhood-option" type="button" onclick="selectNeighborhood(${n.idx})">${escapeHtml(n.name)} <span>${Number(n.fee) > 0 ? 'R$' + Number(n.fee).toFixed(2).replace('.', ',') : 'GrÃ¡tis'}</span></button>`).join('');
+      box.innerHTML = matches.map(n => `<button class="neighborhood-option" type="button" onclick="selectNeighborhood(${n.idx})">${escapeHtml(n.name)} <span>${Number(n.fee) > 0 ? 'R$' + Number(n.fee).toFixed(2).replace('.', ',') : 'Grátis'}</span></button>`).join('');
       box.style.display = 'block';
     }
     function selectNeighborhood(idx) {
@@ -1816,7 +1838,7 @@
         return;
       }
       if (delivery > 0 && (street === '' || number === '')) {
-        err.textContent = 'Preencha rua e nÃºmero para entrega.';
+        err.textContent = 'Preencha rua e número para entrega.';
         err.style.display = 'block';
         return;
       }
@@ -1825,7 +1847,7 @@
     async function saveOrderToSupabase() {
       const orderId = createOrderId(), orderNumber = createOrderNumber(), customer = document.getElementById('customer-name').value.trim(), phone = getCustomerPhone(), street = document.getElementById('addr-street').value.trim(), number = document.getElementById('addr-number').value.trim(), neighborhood = getSelectedNeighborhoodName(), payment = getPaymentMethod(), amounts = getOrderAmounts();
       const customerLabel = phone ? `${customer} | Tel: ${phone}` : customer;
-      await supabaseInsert('orders', [{ id: orderId, numero: orderNumber, cliente: customerLabel, endereco: `Rua: ${street} | Numero: ${number}`, bairro: neighborhood, taxa: amounts.delivery, subtotal: amounts.subtotal, total: amounts.total, pagamento: normalizePaymentForOrder(payment), status: 'novo' }]);
+      await supabaseInsert('orders', [{ id: orderId, numero: orderNumber, cliente: customerLabel, endereco: `Rua: ${street} | N?mero: ${number}`, bairro: neighborhood, taxa: amounts.delivery, subtotal: amounts.subtotal, total: amounts.total, pagamento: normalizePaymentForOrder(payment), status: 'novo' }]);
       const items = [];
       cart.forEach(i => {
         items.push({ order_id: orderId, name: `${i.name} (${i.size})${i.note ? ' - Obs: ' + i.note : ''}`, qty: i.qty, price: Number(i.price) || 0 });
@@ -1837,11 +1859,11 @@
     async function sendToWhatsapp() {
       if (cart.length === 0) return;
       const closedReason = getStoreClosedReason(); if (closedReason) { alert(closedReason); return }
-      if (!isAddressValid()) { alert('Preencha nome, rua, nÃºmero e selecione o bairro para entrega.'); return }
+      if (!isAddressValid()) { alert('Preencha nome, rua, número e selecione o bairro para entrega.'); return }
       if (!isPaymentSelected()) { alert('Selecione a forma de pagamento para finalizar o pedido.'); return }
       const btn = document.getElementById('checkout-btn'); btn.disabled = true; btn.textContent = 'Enviando...';
       let savedOrder = null;
-      try { savedOrder = await saveOrderToSupabase() } catch (e) { console.warn('Pedido nÃ£o salvo no painel.', e); alert('NÃ£o foi possÃ­vel salvar o pedido no painel. Motivo: ' + (e.message || e) + '. O WhatsApp serÃ¡ aberto mesmo assim.') } finally { btn.textContent = 'Finalizar Pedido'; updateTotals() }
+      try { savedOrder = await saveOrderToSupabase() } catch (e) { console.warn('Pedido não salvo no painel.', e); alert('Não foi possível salvar o pedido no painel. Motivo: ' + (e.message || e) + '. O WhatsApp será aberto mesmo assim.') } finally { btn.textContent = 'Finalizar Pedido'; updateTotals() }
       if (savedOrder) saveLastOrderTracker(savedOrder);
       const url = 'https://wa.me/55' + '38988532530' + '?text=' + encodeURIComponent(buildWhatsappMessage(savedOrder?.numero));
       window.open(url, '_blank');
