@@ -1091,8 +1091,7 @@
             <div class="sz-slices">8 fatias</div>
             <div class="sz-price">R$58</div>
           </div>
-          <div class="size-btn" data-size="familia"
-            onclick="selectSize(this,'mix','familia',68,'Família','12 fatias')">
+          <div class="size-btn" data-size="familia" onclick="selectSize(this,'mix','familia',68,'Família','12 fatias')">
             <div class="sz-name">FAMÍLIA</div>
             <div class="sz-slices">12 fatias</div>
             <div class="sz-price">R$68</div>
@@ -1529,7 +1528,7 @@
     function orderStatusLabel(status) {
       const labels = {
         novo: 'Aguardando confirmação da pizzaria',
-        aceito: 'Pedido aceito pela pizzaria',
+        aceito: 'Seu pedido está sendo preparado',
         preparando: 'Seu pedido está sendo preparado',
         saiu_entrega: 'Seu pedido saiu para entrega',
         entregue: 'Pedido entregue',
@@ -1538,7 +1537,7 @@
       return labels[status] || labels.novo;
     }
     function orderStatusPosition(status) {
-      const positions = { novo: 0, aceito: 1, preparando: 2, saiu_entrega: 3, entregue: 3, cancelado: 0 };
+      const positions = { novo: 0, aceito: 1, preparando: 1, saiu_entrega: 2, entregue: 3, cancelado: 0 };
       return positions[status] ?? 0;
     }
     function saveLastOrderTracker(order) {
@@ -1563,9 +1562,9 @@
       const current = orderStatusPosition(status);
       const steps = [
         ['novo', 'Recebido'],
-        ['aceito', 'Aceito'],
         ['preparando', 'Preparando'],
-        ['saiu_entrega', 'Entrega']
+        ['saiu_entrega', 'Entrega'],
+        ['entregue', 'Entregue']
       ];
       box.className = 'order-tracker' + (status === 'cancelado' ? ' canceled' : (status === 'entregue' ? ' done' : ''));
       box.style.display = 'block';
