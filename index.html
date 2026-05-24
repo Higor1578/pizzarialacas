@@ -1573,7 +1573,7 @@
       <div>
         <strong>Pedido #${order.numero || String(order.id).slice(0, 8)}</strong>
         <span>${orderStatusLabel(status)}</span>
-        <small>${status === 'entregue' || status === 'cancelado' ? 'Acompanhamento finalizado.' : 'A pizzaria atualiza este status pelo painel administrativo.'}</small>
+        ${status === 'entregue' || status === 'cancelado' ? '<small>Acompanhamento finalizado.</small>' : ''}
       </div>
       <button class="tracker-close" onclick="clearOrderTracker()" title="Ocultar acompanhamento">×</button>
     </div>
@@ -1592,7 +1592,9 @@
       if (!tracker || !tracker.id) { renderOrderTracker(null); return }
       renderOrderTracker(tracker);
       try {
-        const rows = await supabaseGet('orders', `?select=id,numero,status&id=eq.${encodeURIComponent(tracker.id)}&limit=1`);
+        let rows = await supabaseRpc('get_order_status', { order_id: tracker.id });
+        if (!Array.isArray(rows)) rows = rows ? [rows] : [];
+        if (!rows.length) rows = await supabaseGet('orders', `?select=id,numero,status&id=eq.${encodeURIComponent(tracker.id)}&limit=1`);
         if (Array.isArray(rows) && rows.length) {
           const updated = Object.assign({}, tracker, { numero: rows[0].numero || tracker.numero, status: rows[0].status || tracker.status });
           localStorage.setItem(LAST_ORDER_KEY, JSON.stringify(updated));
@@ -1621,6 +1623,11 @@
       const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, { method: 'POST', headers: Object.assign({}, SUPABASE_HEADERS, { Prefer: 'return=minimal' }), body: JSON.stringify(rows) });
       if (!response.ok) { let detail = ''; try { detail = await response.text() } catch (e) { } throw new Error(`Supabase insert ${table}: ${response.status} ${detail}`) }
       return true;
+    }
+    async function supabaseRpc(name, payload = {}) {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`, { method: 'POST', headers: SUPABASE_HEADERS, body: JSON.stringify(payload) });
+      if (!response.ok) throw new Error(`Supabase rpc ${name}: ${response.status}`);
+      return response.json();
     }
     function createOrderId() { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8); return v.toString(16) }) }
     function createOrderNumber() { return 100000 + (Date.now() % 900000) }
