@@ -23,7 +23,7 @@
     }
 
     body.has-cart {
-      padding-bottom: calc(48vh + 110px)
+      padding-bottom: 96px
     }
 
     .header {
@@ -398,7 +398,7 @@
 
     .step-line {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 6px;
       margin-bottom: 12px
     }
@@ -594,6 +594,37 @@
       margin: 10px 0
     }
 
+    .builder-chip-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .builder-chip-row .builder-chips {
+      flex: 1;
+      min-width: 180px
+    }
+
+    .add-pizza-small {
+      border: 1px solid #ff6b3d;
+      border-radius: 999px;
+      background: #4a1500;
+      color: #fff2e6;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      margin-top: 9px;
+      white-space: nowrap
+    }
+
+    .add-pizza-small:disabled {
+      opacity: .45;
+      cursor: not-allowed
+    }
+
     .builder-chip {
       display: inline-flex;
       align-items: center;
@@ -724,7 +755,13 @@
       bottom: 0;
       max-height: 48vh;
       overflow-y: auto;
-      z-index: 5
+      z-index: 6;
+      display: none;
+      box-shadow: 0 -12px 30px rgba(0, 0, 0, .45)
+    }
+
+    .cart-panel.open {
+      display: block
     }
 
     .cart-panel-inner {
@@ -740,7 +777,8 @@
       margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 8px
+      gap: 8px;
+      justify-content: space-between
     }
 
     .cart-badge {
@@ -754,6 +792,72 @@
       display: flex;
       align-items: center;
       justify-content: center
+    }
+
+    .cart-title-main {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .cart-close {
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      border-radius: 9px;
+      width: 30px;
+      height: 30px;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer
+    }
+
+    .cart-fab {
+      display: none;
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 7;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #c0392b, #ff6b3d);
+      color: #fff;
+      min-width: 64px;
+      height: 56px;
+      padding: 0 18px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 22px;
+      font-weight: 900;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .45);
+      cursor: pointer
+    }
+
+    .cart-fab svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round
+    }
+
+    .cart-fab.show {
+      display: inline-flex
+    }
+
+    .cart-fab-count {
+      min-width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #fff2e6;
+      color: #8b1a00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px
     }
 
     .cart-item {
@@ -966,7 +1070,7 @@
       }
 
       body.has-cart {
-        padding-bottom: calc(52vh + 140px)
+        padding-bottom: 96px
       }
 
       .order-top-inner {
@@ -1068,9 +1172,10 @@
         <div class="step-line">
           <div class="step-pill active" id="step-size">1 Tamanho</div>
           <div class="step-pill" id="step-flavors">2 Sabores</div>
-          <div class="step-pill" id="step-note">3 Observação</div>
-          <div class="step-pill" id="step-drinks">4 Bebidas</div>
-          <div class="step-pill" id="step-add">5 Adicionar</div>
+          <div class="step-pill" id="step-borda">3 Borda</div>
+          <div class="step-pill" id="step-note">4 Observação</div>
+          <div class="step-pill" id="step-drinks">5 Bebidas</div>
+          <div class="step-pill" id="step-add">6 Pedido</div>
         </div>
 
         <div class="section-title">1. Escolha o tamanho</div>
@@ -1106,19 +1211,27 @@
           <button class="flavor-tab" onclick="setFlavorFilter('esp',this)">Especiais</button>
           <button class="flavor-tab" onclick="setFlavorFilter('doce',this)">Doces</button>
         </div>
-        <div class="builder-chips" id="builder-chips"></div>
+        <div class="builder-chip-row">
+          <div class="builder-chips" id="builder-chips"></div>
+          <button class="add-pizza-small" id="new-pizza-top-btn" onclick="startNewPizza()" disabled>Montar outra
+            pizza</button>
+        </div>
         <div id="list-flavors"></div>
 
-        <div class="section-title">3. Observação</div>
+        <div class="section-title">3. Borda da pizza</div>
+        <div style="font-size:13px;color:#d59a78;margin-bottom:10px">Escolha a borda antes de montar outra pizza.</div>
+        <div class="border-section" id="bordas-grid"></div>
+
+        <div class="section-title">4. Observação</div>
         <textarea class="note-input" id="pizza-note" placeholder="Ex: tirar cebola, sem azeitona, massa bem assada"
           oninput="renderPizzaBuilder()"></textarea>
 
-        <div class="section-title">4. Bebidas para acompanhar</div>
+        <div class="section-title">5. Bebidas para acompanhar</div>
         <div style="font-size:13px;color:#d59a78;margin-bottom:10px">Adicione uma bebida para completar seu pedido.
         </div>
         <div id="list-bebidas-suggest"></div>
 
-        <div class="section-title">5. Pedido</div>
+        <div class="section-title">6. Pedido</div>
         <div class="builder-actions">
           <button class="builder-clear" id="new-pizza-btn" onclick="startNewPizza()" disabled>Nova pizza</button>
         </div>
@@ -1136,9 +1249,18 @@
     </div>
   </div>
 
-  <div class="cart-panel">
+  <button class="cart-fab" id="cart-fab" onclick="toggleCartPanel()" aria-label="Abrir carrinho"><svg
+      viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="8" cy="21" r="1" />
+      <circle cx="19" cy="21" r="1" />
+      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+    </svg><span class="cart-fab-count" id="cart-fab-count">0</span></button>
+
+  <div class="cart-panel" id="cart-panel">
     <div class="cart-panel-inner">
-      <div class="cart-title">Meu Pedido <div class="cart-badge" id="cart-count">0</div>
+      <div class="cart-title"><span class="cart-title-main">Meu Pedido <span class="cart-badge"
+            id="cart-count">0</span></span><button class="cart-close" onclick="closeCartPanel()"
+          aria-label="Fechar carrinho">×</button>
       </div>
       <div id="cart-items-mini"></div>
       <div class="delivery-row" style="flex-wrap:wrap;gap:8px">
@@ -1164,11 +1286,6 @@
       <div class="delivery-row" style="margin-top:8px;align-items:center"><label>Taxa de entrega:</label>
         <div style="display:flex;align-items:center;gap:4px"><span style="color:#ff6b3d;font-weight:700">R$</span><input
             class="delivery-input" type="number" min="0" step="0.5" placeholder="0,00" id="delivery-fee" readonly></div>
-      </div>
-      <div class="delivery-row" style="margin-top:8px;align-items:flex-start;flex-direction:column">
-        <label>Borda da pizza:</label>
-        <span style="font-size:11px;color:#d59a78;margin-top:-4px">Escolha antes de adicionar a pizza ao pedido.</span>
-        <div class="border-section" id="bordas-grid" style="width:100%;margin-bottom:0"></div>
       </div>
       <div class="delivery-row" style="margin-top:8px;align-items:center"><label>Forma de pagamento:</label><select
           class="delivery-input" id="payment-method" onchange="updateTotals()" style="width:60%">
@@ -1208,6 +1325,7 @@
     let sizes = { mix: { k: 'media', price: 38, name: 'Média', slices: '4 fatias' }, bebidas: { k: 'unit', price: 0, name: 'Unidade', slices: '' } };
     const LAST_ORDER_KEY = 'la_casa_last_order';
     let orderStatusTimer = null;
+    let cartPanelOpen = false;
 
     function escapeHtml(value) { return String(value || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;') }
     function getAllFlavors() {
@@ -1351,8 +1469,11 @@
       document.getElementById('flavor-limit').textContent = max === 3 ? 'Escolha até 3 sabores. Sabores de categorias diferentes calculam o valor médio.' : 'Escolha 1 ou 2 sabores. Meia tradicional com meia especial calcula o valor médio.';
       chips.innerHTML = pizzaSelections.length ? pizzaSelections.map((item, index) => `<span class="builder-chip">${escapeHtml(item.name)}<button onclick="removePizzaFlavor(${index})" title="Remover">x</button></span>`).join('') : '<span style="font-size:12px;color:#d59a78">Toque no + do sabor para montar a pizza.</span>';
       document.getElementById('new-pizza-btn').disabled = pizzaSelections.length === 0;
+      const topPizzaBtn = document.getElementById('new-pizza-top-btn');
+      if (topPizzaBtn) topPizzaBtn.disabled = pizzaSelections.length === 0;
       document.getElementById('step-size').className = 'step-pill done';
       document.getElementById('step-flavors').className = 'step-pill ' + (pizzaSelections.length ? 'done' : 'active');
+      document.getElementById('step-borda').className = 'step-pill ' + (pizzaSelections.length ? 'done' : '');
       document.getElementById('step-note').className = 'step-pill ' + (note ? 'done' : (pizzaSelections.length ? 'active' : ''));
       document.getElementById('step-drinks').className = 'step-pill ' + (cart.some(i => i.cat === 'bebidas') ? 'done' : (pizzaSelections.length ? 'active' : ''));
       document.getElementById('step-add').className = 'step-pill ' + (pizzaSelections.length ? 'active' : '');
@@ -1393,9 +1514,12 @@
       c.innerHTML = '';
       if (!items.length) { c.innerHTML = '<div class="empty-cart">Nenhum item cadastrado.</div>'; return; }
       items.forEach(p => {
+        const price = Number(p.price) || 0;
+        const priceText = 'R$' + price.toFixed(2).replace('.', ',');
+        const desc = category === 'bebidas' ? `${escapeHtml(p.desc || 'Bebida')} · ${priceText}` : escapeHtml(p.desc || '');
         const div = document.createElement('div');
         div.className = 'pizza-card';
-        div.innerHTML = `<div class="pizza-info"><div class="pizza-name">${escapeHtml(p.name)}</div><div class="pizza-desc">${escapeHtml(p.desc || 'Bebida')}</div></div><button class="add-btn" onclick="addToCart('${category}','${escapeHtml(p.name)}','${escapeHtml(p.desc || 'Bebida')}',event,${Number(p.price) || 0})" title="Adicionar">+</button>`;
+        div.innerHTML = `<div class="pizza-info"><div class="pizza-name">${escapeHtml(p.name)}</div><div class="pizza-desc">${desc}</div></div><button class="add-btn" onclick="addToCart('${category}','${escapeHtml(p.name)}','${escapeHtml(p.desc || 'Bebida')}',event,${price})" title="Adicionar">+</button>`;
         c.appendChild(div);
       });
     }
@@ -1407,6 +1531,18 @@
       if (e && e.target) { e.target.classList.add('selected'); e.target.textContent = '✓'; setTimeout(() => { e.target.classList.remove('selected'); e.target.textContent = '+' }, 900) }
     }
     function itemTotal(item) { return (Number(item.price) || 0) * item.qty + (item.borda ? (Number(item.borda.price) || 0) * item.qty : 0) }
+    function openCartPanel() {
+      cartPanelOpen = cart.length > 0;
+      renderCart();
+    }
+    function closeCartPanel() {
+      cartPanelOpen = false;
+      renderCart();
+    }
+    function toggleCartPanel() {
+      cartPanelOpen = cart.length > 0 ? !cartPanelOpen : false;
+      renderCart();
+    }
     function changeQty(id, delta) {
       const idx = cart.findIndex(i => i.id === id);
       if (idx === -1) return;
@@ -1420,11 +1556,16 @@
     }
     function renderCart() {
       const mini = document.getElementById('cart-items-mini');
-      const panel = document.querySelector('.cart-panel');
+      const panel = document.getElementById('cart-panel');
+      const fab = document.getElementById('cart-fab');
       const count = cart.reduce((s, i) => s + i.qty, 0);
       document.getElementById('cart-count').textContent = count;
+      const fabCount = document.getElementById('cart-fab-count');
+      if (fabCount) fabCount.textContent = count;
       document.body.classList.toggle('has-cart', cart.length > 0);
-      if (panel) panel.style.display = cart.length > 0 ? 'block' : 'none';
+      if (cart.length === 0) cartPanelOpen = false;
+      if (fab) fab.classList.toggle('show', cart.length > 0);
+      if (panel) panel.classList.toggle('open', cart.length > 0 && cartPanelOpen);
       mini.innerHTML = '';
       cart.slice(-3).forEach(item => {
         const div = document.createElement('div');
@@ -1563,7 +1704,7 @@
       const steps = [
         ['novo', 'Recebido'],
         ['preparando', 'Preparando'],
-        ['saiu_entrega', 'Entrega'],
+        ['saiu_entrega', 'Saiu para entrega'],
         ['entregue', 'Entregue']
       ];
       box.className = 'order-tracker' + (status === 'cancelado' ? ' canceled' : (status === 'entregue' ? ' done' : ''));
