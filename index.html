@@ -92,14 +92,14 @@ body.has-cart{padding-bottom:calc(48vh + 110px)}
 <body>
 <div class="header">
   <div class="logo-badge"><svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="28" r="18" fill="#c0392b"/><circle cx="25" cy="28" r="15" fill="#e8c07a"/><circle cx="25" cy="28" r="11" fill="#e07a40"/><circle cx="20" cy="24" r="2.5" fill="#c0392b"/><circle cx="29" cy="26" r="2" fill="#c0392b"/><circle cx="23" cy="32" r="2" fill="#c0392b"/><polygon points="25,4 29,14 25,12 21,14" fill="#2d7a2d"/><rect x="23" y="10" width="4" height="8" rx="2" fill="#3a9a3a"/></svg></div>
-  <h1>La Casa da Pizza</h1><p>Forno a Lenha Â· Delivery</p>
+  <h1>La Casa da Pizza</h1><p>Forno a Lenha  Delivery</p>
 </div>
 
 <section class="order-top">
   <div class="order-top-inner">
     <div class="order-copy">
       <p>Delivery La Casa da Pizza</p>
-      <h2>FaÃ§a seu pedido</h2>
+      <h2>Faça seu pedido</h2>
   </div>
   <div class="store-status" id="store-status"></div>
   <div class="order-tracker" id="order-tracker"></div>
@@ -115,8 +115,8 @@ body.has-cart{padding-bottom:calc(48vh + 110px)}
 <div class="content">
   <div class="promo-banner" id="promo-banner">
     <div class="promo-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 11h.01"/><path d="M11 15h.01"/><path d="M16 16h.01"/><path d="m2 16 20 6-6-20A20 20 0 0 0 2 16"/><path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4"/></svg></div>
-    <div class="promo-text"><p>PromoÃ§Ã£o segunda a quinta</p><h3>Pizza Grande R$ 45 Â· com Refri R$ 48</h3><small id="promo-note">Sabores tradicionais Â· Exceto feriados</small></div>
-    <button class="promo-btn" id="promo-btn" onclick="choosePromoPizza()">Escolher pizza da promoÃ§Ã£o</button>
+    <div class="promo-text"><p>Promoção segunda a quinta</p><h3>Pizza Grande R$ 45 Â· com Refri R$ 48</h3><small id="promo-note">Sabores tradicionais Â· Exceto feriados</small></div>
+    <button class="promo-btn" id="promo-btn" onclick="choosePromoPizza()">Escolher pizza da promoção</button>
   </div>
 
   <div class="tab-content active" id="tab-montagem">
@@ -124,7 +124,7 @@ body.has-cart{padding-bottom:calc(48vh + 110px)}
       <div class="step-line">
         <div class="step-pill active" id="step-size">1 Tamanho</div>
         <div class="step-pill" id="step-flavors">2 Sabores</div>
-        <div class="step-pill" id="step-note">3 ObservaÃ§Ã£o</div>
+        <div class="step-pill" id="step-note">3 Observação</div>
         <div class="step-pill" id="step-drinks">4 Bebidas</div>
         <div class="step-pill" id="step-add">5 Adicionar</div>
       </div>
@@ -147,7 +147,7 @@ body.has-cart{padding-bottom:calc(48vh + 110px)}
       <div class="builder-chips" id="builder-chips"></div>
       <div id="list-flavors"></div>
 
-      <div class="section-title">3. ObservaÃ§Ã£o</div>
+      <div class="section-title">3. Observação</div>
       <textarea class="note-input" id="pizza-note" placeholder="Ex: tirar cebola, sem azeitona, massa bem assada" oninput="renderPizzaBuilder()"></textarea>
 
       <div class="section-title">4. Bebidas para acompanhar</div>
@@ -179,13 +179,13 @@ body.has-cart{padding-bottom:calc(48vh + 110px)}
     <input class="delivery-input" type="tel" placeholder="Telefone / WhatsApp" id="customer-phone" oninput="updateTotals()" style="width:42%">
   </div>
   <div class="delivery-row" id="address-row" style="flex-wrap:wrap;gap:8px">
-    <label style="flex-basis:100%">EndereÃ§o:</label>
+    <label style="flex-basis:100%">Endereço:</label>
     <input class="delivery-input" type="text" placeholder="Rua" id="addr-street" oninput="updateTotals()" style="width:45%">
     <input class="delivery-input" type="text" placeholder="NÃºmero" id="addr-number" oninput="updateTotals()" style="width:20%">
     <input class="delivery-input" type="text" placeholder="Digite o bairro" id="addr-neighborhood-search" oninput="onNeighborhoodInput()" style="width:30%" autocomplete="off">
     <input type="hidden" id="addr-neighborhood" value="">
     <div class="neighborhood-results" id="neighborhood-results"></div>
-    <div id="addr-error" style="color:#ffb0a0;font-size:13px;margin-top:6px;display:none">Preencha nome, rua, nÃºmero e bairro para entrega.</div>
+    <div id="addr-error" style="color:#ffb0a0;font-size:13px;margin-top:6px;display:none">Preencha nome, rua, numero e bairro para entrega.</div>
   </div>
   <div class="delivery-row" style="margin-top:8px;align-items:center"><label>Taxa de entrega:</label><div style="display:flex;align-items:center;gap:4px"><span style="color:#ff6b3d;font-weight:700">R$</span><input class="delivery-input" type="number" min="0" step="0.5" placeholder="0,00" id="delivery-fee" readonly></div></div>
   <div class="delivery-row" style="margin-top:8px;align-items:flex-start;flex-direction:column">
@@ -193,7 +193,7 @@ body.has-cart{padding-bottom:calc(48vh + 110px)}
     <span style="font-size:11px;color:#d59a78;margin-top:-4px">Escolha antes de adicionar a pizza ao pedido.</span>
     <div class="border-section" id="bordas-grid" style="width:100%;margin-bottom:0"></div>
   </div>
-  <div class="delivery-row" style="margin-top:8px;align-items:center"><label>Forma de pagamento:</label><select class="delivery-input" id="payment-method" onchange="updateTotals()" style="width:60%"><option value="">Selecione</option><option value="Dinheiro">Dinheiro</option><option value="CartÃ£o no entregador">CartÃ£o no entregador</option><option value="PIX">PIX</option></select></div>
+  <div class="delivery-row" style="margin-top:8px;align-items:center"><label>Forma de pagamento:</label><select class="delivery-input" id="payment-method" onchange="updateTotals()" style="width:60%"><option value="">Selecione</option><option value="Dinheiro">Dinheiro</option><option value="CartÃ£o no entregador">Cartão na entrega</option><option value="PIX">PIX</option></select></div>
   <div class="total-row"><span class="total-label">Total</span><span class="total-value" id="total-display">R$ 0,00</span></div>
   <button class="checkout-btn" id="checkout-btn" onclick="sendToWhatsapp()" disabled>Finalizar Pedido</button>
   <div class="checkout-closed" id="checkout-closed">Hoje estamos fechados. O envio do pedido estÃ¡ indisponÃ­vel.</div>
